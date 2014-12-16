@@ -5,5 +5,5 @@ define(function (require) {
 
     return {
         message: message
-    }
+    };
 });
