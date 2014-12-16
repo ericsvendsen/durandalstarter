@@ -1,7 +1,7 @@
 ﻿requirejs.config({
     paths: {
         'text': '/bower_components/requirejs-text/text',
-        'durandal':'/bower_components/durandal/js',
+        'durandal': '/bower_components/durandal/js',
         'plugins' : '/bower_components/durandal/js/plugins',
         'transitions' : '/bower_components/durandal/js/transitions',
         'knockout': '/bower_components/knockout.js/knockout',
@@ -23,7 +23,14 @@
     }
 });
 
-define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'knockout', 'knockout-validation', 'helpers/events'],  function (system, app, viewLocator, ko, knockoutvalidation, events) {
+define(function (require) {
+    var system = require('durandal/system'),
+        app = require('durandal/app'),
+        viewLocator = require('durandal/viewLocator'),
+        ko = require('knockout'),
+        knockoutvalidation = require('knockout-validation'),
+        events = require('helpers/events');
+
     //>>excludeStart("build", true);
     system.debug(true);
     //>>excludeEnd("build");
@@ -36,7 +43,8 @@ define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'knockout', '
 
     app.configurePlugins({
         router:true,
-        dialog: true
+        dialog: true,
+        widget: true
     });
 
     app.start().then(function() {

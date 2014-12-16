@@ -15,9 +15,9 @@
                     baseUrl: 'app',
                     mainConfigFile: 'app/main.js',
                     out: 'app/main-built.js',
-                    optimize: 'uglify2', //or none
+                    optimize: 'none', //or none
                     paths: {
-                        'requireLib': '../bower_components/requirejs/require',
+                        'requirejs': '../bower_components/requirejs/require',
                         'text': '../bower_components/requirejs-text/text',
                         'durandal': 'empty:',
                         'plugins': 'empty:',
@@ -43,7 +43,8 @@
         });
         filesToInclude.unshift('main');
         filesToInclude.unshift('text');
-        filesToInclude.unshift('requireLib');
+        filesToInclude.unshift('requirejs');
+
         grunt.config.set('requirejs.compile.options.include', filesToInclude); //modules to be optimized
         grunt.task.run('requirejs');
     });
