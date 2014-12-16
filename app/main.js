@@ -6,6 +6,7 @@
         'transitions' : '/bower_components/durandal/js/transitions',
         'knockout': '/bower_components/knockout.js/knockout',
         'mapping': '/bower_components/knockout-mapping/knockout.mapping',
+        'knockout-validation': '/bower_components/knockout-validation/Dist/knockout.validation',
         'bootstrap': '/bower_components/bootstrap/dist/js/bootstrap',
         'jquery': '/bower_components/jquery/jquery'
     },
@@ -13,7 +14,7 @@
         'bootstrap': {
             deps: ['jquery'],
             exports: 'jQuery'
-       }
+        }
     },
     deps: ['knockout', 'mapping'],
     callback: function (ko, mapping) {
@@ -22,10 +23,14 @@
     }
 });
 
-define(['durandal/system', 'durandal/app', 'durandal/viewLocator'],  function (system, app, viewLocator) {
+define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'knockout', 'knockout-validation', 'helpers/events'],  function (system, app, viewLocator, ko, knockoutvalidation, events) {
     //>>excludeStart("build", true);
     system.debug(true);
     //>>excludeEnd("build");
+
+    ko.validation.init({
+        grouping: { deep: true, observable: true, live: false }
+    });
 
     app.title = 'Durandal Starter Kit';
 

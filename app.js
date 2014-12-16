@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
+var locuRoutes = require('./routes/locu');
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.use('/app',  express.static(__dirname + '/app'));
 
 app.use('/', routes);
+app.use('/locu', locuRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

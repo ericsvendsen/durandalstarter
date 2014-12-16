@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form role="form">
+                <div class="form-group">
+                    <label for="name">Location Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Taco Bell" data-bind="value: name, valueUpdate: 'input'">
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" class="form-control" id="city" placeholder="Beavercreek" data-bind="value: city, valueUpdate: 'input'">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="state">State</label>
+                            <select class="form-control" id="state" data-bind="options: states, value: state"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="zipCode">Zipcode</label>
+                            <input type="text" class="form-control" id="zipCode" placeholder="45431" data-bind="value: zipCode, valueUpdate: 'input'">
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" data-bind="click: search, enable: validationModel.isValid()">Show Me</button>
+            </form>
+            <div class="text-center" data-bind="visible: searching">
+                <h2>Searching ... <span class="fa fa-spinner fa-spin"></span></h2>
+            </div>
+            <div data-bind="visible: searchResults().length > 0">
+                <hr>
+                <h3>Found <span data-bind="text: searchResults().length"></span> location(s):</h3>
+                <ul class="list-group" data-bind="foreach: searchResults">
+                    <li class="list-group-item">
+                        <span data-bind="text: name"></span><br>
+                        <span data-bind="text: location.address1"></span><br>
+                        <span data-bind="text: location.locality"></span>, <span data-bind="text: location.region"></span> <span data-bind="text: location.postal_code"></span>
+                    </li>
+                </ul>
+            </div>
+            <div data-bind="visible: searchResults().length === 0 && !searching()">
+                <h3>No results</h3>
+            </div>
+        </div>
+    </div>
+</div>
