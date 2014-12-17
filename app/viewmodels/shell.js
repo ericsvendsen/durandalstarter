@@ -11,6 +11,8 @@
                 { route: 'event', moduleId: 'viewmodels/event', nav: true }
             ]).buildNavigationModel();
 
+            router.mapUnknownRoutes('viewmodels/notFound', 'views/notFound');
+
             return router.activate();
         }
     };
