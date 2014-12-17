@@ -1,4 +1,4 @@
-﻿define(['plugins/router', 'durandal/app'], function (router, app) {
+﻿define(['plugins/router', 'durandal/app', 'helpers/events'], function (router, app, events) {
     return {
         router: router,
         activate: function () {

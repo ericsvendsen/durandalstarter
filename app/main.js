@@ -28,8 +28,7 @@ define(function (require) {
         app = require('durandal/app'),
         viewLocator = require('durandal/viewLocator'),
         ko = require('knockout'),
-        knockoutvalidation = require('knockout-validation'),
-        events = require('helpers/events');
+        knockoutvalidation = require('knockout-validation');
 
     //>>excludeStart("build", true);
     system.debug(true);
