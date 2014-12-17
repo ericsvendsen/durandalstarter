@@ -12,5 +12,5 @@ define(function (require) {
     app.on('clear:event').then(function () {
         app.showMessage('Event has been cleared');
         eventData.message = null;
-    })
+    });
 });
