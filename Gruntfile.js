@@ -15,7 +15,7 @@
                     baseUrl: 'app',
                     mainConfigFile: 'app/main.js',
                     out: 'app/main-built.js',
-                    optimize: 'none', //or none
+                    optimize: 'uglify2', //or none
                     paths: {
                         'requirejs': '../bower_components/requirejs/require',
                         'text': '../bower_components/requirejs-text/text',

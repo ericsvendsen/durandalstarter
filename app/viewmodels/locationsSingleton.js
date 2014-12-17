@@ -20,10 +20,12 @@ define(function (require) {
         states: ko.observableArray(['','AK','AL','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY']),
         searchResults: ko.observableArray([]),
         searching: ko.observable(false),
-        validationModel: ko.validatedObservable({
-            name: self.name,
-            zipCode: self.zipCode
-        }),
+        validationModel: function () {
+            return ko.validatedObservable({
+                name: this.name,
+                zipCode: this.zipCode
+            });
+        },
 
         // actions
         search: function () {
@@ -55,6 +57,11 @@ define(function (require) {
             }).always(function () {
                 self.searching(false);
             });
+        },
+
+        // durandal callbacks
+        compositionComplete: function (child, parent, settings) {
+            $('#name').focus();
         }
     };
 });

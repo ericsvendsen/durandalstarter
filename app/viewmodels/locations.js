@@ -57,6 +57,11 @@ define(function (require) {
                 self.searching(false);
             });
         };
+
+        // durandal callbacks
+        self.compositionComplete = function (child, parent, settings) {
+            $('#name').focus();
+        };
     };
 
     return ctor;

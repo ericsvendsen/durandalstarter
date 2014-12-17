@@ -1,8 +1,13 @@
-<div class="container">
+<section class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1 data-bind="text: title"></h1>
-            <button class="btn btn-primary" data-bind="click: triggerEvent">Trigger Event</button>
+            <h2 data-bind="text: title"></h2>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <button class="btn btn-primary btn-lg btn-block" data-bind="click: raiseEvent, visible: !isTriggered()">Raise Event</button>
+                    <button class="btn btn-success btn-lg btn-block" data-bind="click: clearEvent, visible: isTriggered">Clear Event</button>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</section>

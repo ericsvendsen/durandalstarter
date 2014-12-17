@@ -4,16 +4,30 @@ define(function (require) {
     var app = require('durandal/app'),
         router = require('plugins/router'),
         http = require('plugins/http'),
-        ko = require('knockout');
+        ko = require('knockout'),
+        eventData = require('helpers/eventData');
 
     var ctor = function () {
         var self = this;
 
         // properties
         self.title = ko.observable('Event Trigger');
+        self.isTriggered = ko.observable(false);
 
-        self.triggerEvent = function () {
-            app.trigger('new:event', 'Hey, you clicked that button');
+        // actions
+        self.raiseEvent = function () {
+            self.isTriggered(true);
+            app.trigger('raise:event', 'Hey, you clicked that button');
+        };
+
+        self.clearEvent = function () {
+            self.isTriggered(false);
+            app.trigger('clear:event');
+        };
+
+        // durandal callbacks
+        self.activate = function () {
+            self.isTriggered(eventData.message ? true : false);
         };
     };
 

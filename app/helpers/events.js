@@ -4,8 +4,13 @@ define(function (require) {
     var app = require('durandal/app'),
         eventData = require('helpers/eventData');
 
-    app.on('new:event').then(function (msg) {
-        app.showMessage('Event has been triggered');
+    app.on('raise:event').then(function (msg) {
+        app.showMessage('Event has been raised');
         eventData.message = msg;
     });
+
+    app.on('clear:event').then(function () {
+        app.showMessage('Event has been cleared');
+        eventData.message = null;
+    })
 });

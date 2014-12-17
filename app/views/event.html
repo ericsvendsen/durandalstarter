@@ -1,8 +1,10 @@
-<div class="container">
+<section class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1 data-bind="text: title"></h1>
-            <div data-bind="text: message"></div>
+            <h2 data-bind="text: title"></h2>
+            <div class="text-center" data-bind="css: messageClass">
+                <span data-bind="text: message"></span>
+            </div>
         </div>
     </div>
-</div>
+</section>

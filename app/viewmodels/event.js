@@ -10,8 +10,14 @@ define(function (require) {
     var ctor = function () {
         var self = this;
 
-        self.message = ko.observable(eventData.message || 'Nothing has happened yet.');
+        // properties
+        self.message = ko.observable(eventData.message || 'Nothing to see here.');
         self.title = ko.observable('Event Receiver');
+
+        // computed values
+        self.messageClass = ko.computed(function () {
+            return eventData.message ? 'alert alert-danger' : 'alert alert-success';
+        });
     };
 
     return ctor;

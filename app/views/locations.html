@@ -1,6 +1,7 @@
-<div class="container">
+<section class="container">
     <div class="row">
         <div class="col-md-12">
+            <h2>Locations</h2>
             <form role="form">
                 <div class="form-group">
                     <label for="name">Location Name</label>
@@ -28,11 +29,11 @@
                 </div>
                 <button class="btn btn-primary" data-bind="click: search, enable: validationModel.isValid()">Show Me</button>
             </form>
+            <hr />
             <div class="text-center" data-bind="visible: searching">
-                <h2>Searching ... <span class="fa fa-spinner fa-spin"></span></h2>
+                <h3>Searching ... <span class="fa fa-spinner fa-spin"></span></h3>
             </div>
             <div data-bind="visible: searchResults().length > 0">
-                <hr>
                 <h3>Found <span data-bind="text: searchResults().length"></span> location(s):</h3>
                 <ul class="list-group" data-bind="foreach: searchResults">
                     <li class="list-group-item">
@@ -47,4 +48,4 @@
             </div>
         </div>
     </div>
-</div>
+</section>
